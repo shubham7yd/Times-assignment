@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+      
+</head>
+
+<body>
+    <center>
+        <div id="latest-stories">
+            <h1>Features Voice</h1>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                fetchLatestStories();
+            });
+
+            async function fetchLatestStories() {
+                try {
+                    const jsonData = [
+                        {
+                            "title": "Amy Schneider’s Jeopardy! Streak Ends at 40 Consecutive Wins and $1.4 Million",
+                            "link": "https://time.com/6142934/amy-schneider-jeopardy-streak-ends/"
+                        },
+                        {
+                            "title": "'Writing With Fire' Shines a Light on All-Women News Outlet",
+                            "link": "https://time.com/6142628/writing-with-fire-india-documentary/"
+                        },
+                        {
+                            "title": "Moderna Booster May Wane After 6 Months",
+                            "link": "https://time.com/6142852/moderna-booster-wanes-omicron/"
+                        },
+                        {
+                            "title": "Pressure Mounts for Biden to Nominate a Black Woman to the Supreme",
+                            "link": "https://time.com/6142743/joe-biden-supreme-court-nominee-black-woman-campaign-promise/"
+                        },
+                        {
+                            "title": "The James Webb Space Telescope Is in Position—And Now We Wait",
+                            "link": "https://time.com/6142769/james-webb-space-telescope-reaches-l2/"
+                        },
+                        {
+                            "title": "We Urgently Need a New National COVID-19 Response Plan",
+                            "link": "https://time.com/6142718/we-need-new-national-covid-19-response-plan/"
+                        }
+                    ];
+
+                    displayStories(jsonData);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+
+            function displayStories(stories) {
+                const latestStoriesContainer = document.getElementById("latest-stories");
+
+                stories.forEach(story => {
+                    const storyElement = document.createElement("div");
+                    storyElement.innerHTML = `
+                    <h2>${story.title}</h2>
+                    <a href="${story.link}" target="_blank">Read more</a>
+                `;
+                    latestStoriesContainer.appendChild(storyElement);
+                });
+            }
+        </script>
+    </center>
+</body>
+
+</html>
